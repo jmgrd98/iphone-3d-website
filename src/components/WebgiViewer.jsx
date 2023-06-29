@@ -23,9 +23,13 @@ import {scrollAnimation} from "../lib/scroll-animation.js";
 
 gsap.registerPlugin(ScrollTrigger);
 
-function WebgiViewer() {
+const WebgiViewer = forwardRef((props, ref) => {
 
     const canvasRef = useRef(null);
+
+    // useImperativeHandle(ref, () => ({
+    //     triggerPreview() =>
+    // }}));
 
     const memoizedScrollAnimation = useCallback(
         (position, target, onUpdate) => {
@@ -87,6 +91,6 @@ function WebgiViewer() {
             <canvas id='webgi-canvas' ref={canvasRef}/>
         </div>
     )
-}
+});
 
 export default WebgiViewer;
